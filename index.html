@@ -35,7 +35,7 @@
       padding: 1rem 2rem;
       font-size: 1rem;
       background-color: #0078D4;
-     : white;
+      color: white;
       border: none;
       border-radius: 8px;
       cursor: pointer;
@@ -59,22 +59,18 @@
       opacity: 0;
     }
 
-    #unlockMessage {
+    .unlock-message {
       font-size: 1.2rem;
       color: #0078D4;
-      margin-top: 0;
+      margin-top: 2rem;
       opacity: 0;
-      visibility: hidden;
-      height: 0;
-      overflow: hidden;
-      transition: opacity 1s ease-in-out, margin-top 0.3s ease;
+      animation: fadeIn 1s forwards;
     }
 
-    #unlockMessage.visible {
-      opacity: 1;
-      visibility: visible;
-      margin-top: 2rem;
-      height: auto;
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
     }
   </style>
 </head>
@@ -86,12 +82,9 @@
   <h2>Tap below to unlock today's experience</h2>
   <button onclick="unlockTour()">Unlock Tour</button>
 
-  <div id="unlockMessage">🎉 The tour is now unlocked. Enjoy your walk!</div>
-
   <script>
     function unlockTour() {
       const image = document.getElementById('mainImage');
-      const message = document.getElementById('unlockMessage');
       image.classList.add('fade-out');
 
       const newImage = new Image();
@@ -101,7 +94,12 @@
         setTimeout(() => {
           image.src = newImage.src;
           image.classList.remove('fade-out');
-          message.classList.add('visible');
+
+          // Create and insert the unlock message
+          const message = document.createElement('div');
+          message.className = 'unlock-message';
+          message.textContent = '🎉 The tour is now unlocked. Enjoy your walk!';
+          document.body.appendChild(message);
         }, 1000);
       };
     }
