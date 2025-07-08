@@ -45,24 +45,24 @@
       background-color: #005a9e;
     }
 
-    #imageContainer {
+    #mainImage {
       max-width: 100%;
       height: auto;
       border-radius: 12px;
       margin-bottom: 20px;
-      opacity: 0;
+      opacity: 1;
       transition: opacity 1s ease-in-out;
     }
 
-    #imageContainer.visible {
-      opacity: 1;
+    #mainImage.fade-out {
+      opacity: 0;
     }
   </style>
 </head>
 <body>
 
-  <!-- Placeholder for the image that will appear after unlocking -->
-  <img id="imageContainer" src="" alt="Tour Starting Point">
+  <!-- Initial image that will be replaced -->
+  <img id="mainImage" src="unlock.png" alt="Welcome to the Tour">
 
   <h1>Welcome to the Heritage Protected Architecture Walk</h1>
   <h2>Tap below to unlock today's experience</h2>
@@ -70,9 +70,14 @@
 
   <script>
     function unlockTour() {
-      const image = document.getElementById('imageContainer');
-      image.src = 'tour-welkome.png'; // Replace with your actual image path
-      image.classList.add('visible');
+      const image = document.getElementById('mainImage');
+      image.classList.add('fade-out');
+
+      // Wait for fade-out to complete before changing the image
+      setTimeout(() => {
+        image.src = 'tour-start.png'; // Replace with your actual image path
+        image.classList.remove('fade-out');
+      }, 1000); // Match this to the CSS transition duration
     }
   </script>
 
