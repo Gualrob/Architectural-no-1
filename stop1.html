@@ -5,25 +5,24 @@
   <meta charset="UTF-8">
   <title>Stop 1</title>
   <script>
+    // Check if today's date is stored in localStorage
     const today = new Date().toISOString().split('T')[0];
     const unlocked = localStorage.getItem('tourUnlocked');
     if (unlocked !== today) {
-      window.location.href = 'index.html';
+      window.location.href = 'index.html'; // Redirect if not unlocked
     }
   </script>
 </head>
 <body>
   <h1>Stop 1</h1>
   <h2>Stop 1</h2>
-  <script>
-    const iframe = document.createElement("iframe");
-    iframe.src = "https://map.arkitekten-alesund.no/mryuxsn3";  // Replace with your actual TinyURL
-    iframe.width = "100%";
-    iframe.height = "80";
-    iframe.allow = "autoplay";
-    document.body.appendChild(iframe);
-  </script>
+
+  <!-- Embed Google Drive preview via TinyURL -->
+  <iframe 
+    src="https://map.arkitekten-alesund.no/mryuxsn3
+
 </body>
 </html>
+
 
 
