@@ -28,11 +28,7 @@
     h2 {
       font-size: 1.2rem;
       color: #666;
-      margin-bottom: 2rem;
-    }
-
-    button {
-      padding: 1rem 2rem;
+      margin-bottom: 2 padding: 1rem 2rem;
       font-size: 1rem;
       background-color: #0078D4;
       color: white;
@@ -89,7 +85,7 @@
       image.classList.add('fade-out');
 
       const newImage = new Image();
-      newImage.src = 'tour-welcome.png';
+      newImage.src = 'tour-welcome.png'; // Make sure this file exists in the same folder
 
       newImage.onload = () => {
         setTimeout(() => {
