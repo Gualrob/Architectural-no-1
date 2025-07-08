@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +14,15 @@
 </head>
 <body>
   <h1>Stop 1</h1>
-  <h2>Stop 1</h2>https://map.arkitekten-alesund.no/mryuxsn3
+  <h2>Stop 1</h2>
+  <script>
+    const iframe = document.createElement("iframe");
+    iframe.src = "https://map.arkitekten-alesund.no/mryuxsn3";  // Replace with your actual TinyURL
+    iframe.width = "100%";
+    iframe.height = "80";
+    iframe.allow = "autoplay";
+    document.body.appendChild(iframe);
+  </script>
 </body>
 </html>
 
