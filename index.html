@@ -58,10 +58,21 @@
     #mainImage.fade-out {
       opacity: 0;
     }
+
+    #unlockMessage {
+      font-size: 1.2rem;
+      color: #0078D4;
+      margin-top: 1rem;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #unlockMessage.visible {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
-
 
   <img id="mainImage" src="unlock.png" alt="Welcome to the Tour" />
 
@@ -69,21 +80,25 @@
   <h2>Tap below to unlock today's experience</h2>
   <button onclick="unlockTour()">Unlock Tour</button>
 
+  <div id="unlockMessage">🎉 The tour is now unlocked. Enjoy your walk!</div>
+
   <script>
     function unlockTour() {
       const image = document.getElementById('mainImage');
+      const message = document.getElementById('unlockMessage');
       image.classList.add('fade-out');
 
       const newImage = new Image();
-      newImage.src = 'tour-start.png';
+      newImage.src = 'tour-welcome.png';
+
       newImage.onload = () => {
         setTimeout(() => {
           image.src = newImage.src;
           image.classList.remove('fade-out');
+          message.classList.add('visible');
         }, 1000);
       };
     }
-
   </script>
 
 </body>
