@@ -1,13 +1,24 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Stop 1</title>
+  <script>
+    // Check if the tour is unlocked for today
+    const today = new Date().toISOString().split('T')[0];
+    const unlocked = localStorage.getItem('tourUnlocked');
+
+    if (unlocked !== today) {
+      alert("You need to unlock the tour first.");
+      window.location.href = "index.html";
+    }
+  </script>
 </head>
 <body>
   <h1>Stop 1</h1>
-  <audio autoplay>
+  <audio controls autoplay>
     <source src="stop1.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
