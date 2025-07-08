@@ -35,7 +35,8 @@
       padding: 1rem 2rem;
       font-size: 1rem;
       background-color: #0078D4;
-      color: white;
+     : white;
+      border: none;
       border-radius: 8px;
       cursor: pointer;
       transition: background-color 0.3s ease;
@@ -61,15 +62,19 @@
     #unlockMessage {
       font-size: 1.2rem;
       color: #0078D4;
-      margin-top: 2rem; /* Adds space between button and message */
+      margin-top: 0;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 1s ease-in-out;
+      height: 0;
+      overflow: hidden;
+      transition: opacity 1s ease-in-out, margin-top 0.3s ease;
     }
 
     #unlockMessage.visible {
       opacity: 1;
       visibility: visible;
+      margin-top: 2rem;
+      height: auto;
     }
   </style>
 </head>
