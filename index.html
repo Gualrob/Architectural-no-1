@@ -6,9 +6,7 @@
   <title>Unlock the Heritage Protected Architecture Walk</title>
   <style>
     body {
-      
-font-family: "Arial Rounded MT Bold", "Arial Rounded MT", Arial, sans-serif;
-
+      font-family: "Arial Rounded MT Bold", "Arial Rounded MT", Arial, sans-serif;
       margin: 0;
       padding: 0;
       background: #f0f4f8;
@@ -46,17 +44,38 @@ font-family: "Arial Rounded MT Bold", "Arial Rounded MT", Arial, sans-serif;
     button:hover {
       background-color: #005a9e;
     }
+
+    #unlockedImage {
+      margin-top: 20px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #unlockedImage.visible {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
 
-<img src="unlock.png" alt="Welcome to the Tour" style="max-width: 100%; height: auto; border-radius: 12px; margin-bottom: 20px;">
-  
+  <img src="unlock.png" alt="Welcome to the Tour" style="max-width: 100%; height: auto; border-radius: 12px; margin-bottom: 20px;">
+  
   <h1>Welcome to the Heritage Protected Architecture Walk</h1>
   <h2>Tap below to unlock today's experience</h2>
   <button onclick="unlockTour()">Unlock Tour</button>
 
-  <script src="unlock.js"></script>
+  <!-- Placeholder for the new image -->
+  <img id="unlockedImage" src="tour-welcome.png" alt="Tour Starting Point">
+
+  <script>
+    function unlockTour() {
+      const image = document.getElementById('unlockedImage');
+      image.classList.add('visible');
+    }
+  </script>
+
 </body>
 </html>
-
