@@ -28,7 +28,7 @@
     h2 {
       font-size: 1.2rem;
       color: #666;
-     -bottom: 2rem;
+      margin-bottom: 2rem;
     }
 
     button {
@@ -36,7 +36,6 @@
       font-size: 1rem;
       background-color: #0078D4;
       color: white;
-      border: none;
       border-radius: 8px;
       cursor: pointer;
       transition: background-color 0.3s ease;
@@ -62,15 +61,15 @@
     #unlockMessage {
       font-size: 1.2rem;
       color: #0078D4;
-      margin-top: 2rem;
+      margin-top: 2rem; /* Adds space between button and message */
       opacity: 0;
+      visibility: hidden;
       transition: opacity 1s ease-in-out;
-      display: none;
     }
 
     #unlockMessage.visible {
-      display: block;
       opacity: 1;
+      visibility: visible;
     }
   </style>
 </head>
@@ -91,13 +90,12 @@
       image.classList.add('fade-out');
 
       const newImage = new Image();
-      newImage.src = 'tour-welcome.png'; // Ensure this image exists in the same folder
+      newImage.src = 'tour-welcome.png'; // Make sure this image exists
 
       newImage.onload = () => {
         setTimeout(() => {
           image.src = newImage.src;
           image.classList.remove('fade-out');
-          message.style.display = 'block';
           message.classList.add('visible');
         }, 1000);
       };
