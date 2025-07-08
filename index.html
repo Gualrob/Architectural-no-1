@@ -62,6 +62,7 @@
 </head>
 <body>
 
+
   <img id="mainImage" src="unlock.png" alt="Welcome to the Tour" />
 
   <h1>Welcome to the Heritage Protected Architecture Walk</h1>
@@ -73,17 +74,16 @@
       const image = document.getElementById('mainImage');
       image.classList.add('fade-out');
 
-      // Preload the new image before swapping
       const newImage = new Image();
-      newImage.src = 'tour-welcome.png'; // Make sure this path is correct
-
+      newImage.src = 'tour-start.png';
       newImage.onload = () => {
         setTimeout(() => {
           image.src = newImage.src;
           image.classList.remove('fade-out');
-        }, 1000); // Match the fade-out duration
+        }, 1000);
       };
     }
+
   </script>
 
 </body>
