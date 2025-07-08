@@ -11,7 +11,11 @@
       margin: 0;
       padding: 0;
       background: #f0f4f8;
-      display;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       text-align: center;
     }
 
@@ -54,20 +58,6 @@
     #mainImage.fade-out {
       opacity: 0;
     }
-
-    .unlock-message {
-      font-size: 1.2rem;
-      color: #0078D4;
-      margin-top: 2rem;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
   </style>
 </head>
 <body>
@@ -84,18 +74,11 @@
       image.classList.add('fade-out');
 
       const newImage = new Image();
-      newImage.src = 'tour-welcome.png'; // Ensure this image exists
-
+      newImage.src = 'tour-welcome.png'; // This image should include the embedded message
       newImage.onload = () => {
         setTimeout(() => {
           image.src = newImage.src;
           image.classList.remove('fade-out');
-
-          // Create the message element only after unlocking
-          const message = document.createElement('div');
-          message.className = 'unlock-message';
-          message.textContent = '🎉 The tour is now unlocked. Enjoy your walk!';
-          document.body.appendChild(message);
         }, 1000);
       };
     }
