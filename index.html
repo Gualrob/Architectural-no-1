@@ -41,7 +41,7 @@
     .play-button {
       background-color: #0078D4;
       color: white;
-      border: none;
+     ;
       border-radius: 50px;
       padding: 1rem 2rem;
       font-size: 1.2rem;
@@ -50,7 +50,12 @@
       transition: background-color 0.3s ease;
     }
 
-    .play-button:hover {
+    .play-button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    .play-button:hover:enabled {
       background-color: #005a9e;
     }
 
