@@ -36,7 +36,6 @@
       font-size: 1rem;
       background-color: #0078D4;
       color: white;
-      border: none;
       border-radius: 8px;
       cursor: pointer;
       transition: background-color 0.3s ease;
@@ -72,6 +71,10 @@
     function unlockTour() {
       const image = document.getElementById('mainImage');
       image.classList.add('fade-out');
+
+      // Store today's date in localStorage
+      const today = new Date().toISOString().split('T')[0];
+      localStorage.setItem('tourUnlocked', today);
 
       const newImage = new Image();
       newImage.src = 'tour-welcome.png'; // This image should include the embedded message
