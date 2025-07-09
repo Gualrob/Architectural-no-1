@@ -22,7 +22,7 @@
     img {
       max-width: 100%;
       height: auto;
-      border-radius: 12;
+      border-radius: 12px;
       margin-bottom: 1.5rem;
     }
 
@@ -38,7 +38,7 @@
       border-radius: 50px;
       padding: 1rem 2rem;
       font-size: 1.2rem;
-      cursor: pointer;
+     ;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       transition: background-color 0.3s ease;
     }
@@ -69,30 +69,14 @@
     Your browser does not support the audio element.
   </audio>
 
-  <div id="lockedMessage" class="locked-message" style="display: none;">
-    You need to unlock the tour first. Redirecting...
+  <div id="lockedMessage" class="locked-message">
+    This map must be unlocked in our shop at Storgata 23.
   </div>
 
   <script>
-    const today = new Date().toISOString().split('T')[0];
-    const unlocked = localStorage.getItem('tourUnlocked');
-
-    if (unlocked !== today) {
-      document.getElementById('lockedMessage').style.display = 'block';
-      setTimeout(() => {
-        window.location.href = "index.html";
-      }, 3000);
-    }
-
     function playAudio() {
       document.getElementById('audio').play();
     }
   </script>
 </body>
 </html>
-
-
-
-
-
-
