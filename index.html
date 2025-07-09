@@ -17,7 +17,7 @@
     .container {
       max-width: 800px;
       margin: 0 auto;
-      text-align: left; /* Changed from center to match stop1.html */
+      text-align: left; /* Match stop1.html */
     }
 
     img {
@@ -82,7 +82,6 @@
       const image = document.getElementById('mainImage');
       image.classList.add('fade-out');
 
-      // Store today's date in localStorage
       const today = new Date().toISOString().split('T')[0];
       localStorage.setItem('tourUnlocked', today);
 
