@@ -39,63 +39,15 @@
     }
 
     .play-button {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       display: inline-block;
       background-color: #0078D4;
       color: white;
       border: none;
-      border-radius: 50px;
+      border-radius: 50px !important;
       padding: 1rem 2rem;
       font-size: 1.2rem;
       cursor: pointer;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: background-color 0.3s ease;
-      text-align: center;
-    }
-
-    .play-button:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
-    }
-
-    .play-button:hover:enabled {
-      background-color: #005a9e;
-    }
-
-    #mainImage {
-      opacity: 1;
-      transition: opacity 1s ease-in-out;
-    }
-
-    #mainImage.fade-out {
-      opacity: 0;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <img id="mainImage" src="unlock.png" alt="Welcome to the Tour" />
-    <h1>Welcome to the Heritage Protected Architecture Walk</h1>
-    <h2>Tap below to unlock today's experience</h2>
-    <button class="play-button" onclick="unlockTour()">Unlock</button>
-  </div>
-
-  <script>
-    function unlockTour() {
-      const image = document.getElementById('mainImage');
-      image.classList.add('fade-out');
-
-      const today = new Date().toISOString().split('T')[0];
-      localStorage.setItem('tourUnlocked', today);
-
-      const newImage = new Image();
-      newImage.src = 'tour-welcome.png';
-      newImage.onload = () => {
-        setTimeout(() => {
-          image.src = newImage.src;
-          image.classList.remove('fade-out');
-        }, 1000);
-      };
-    }
-  </script>
-</body>
-</html>
