@@ -66,38 +66,41 @@
       width: 100%;
       max-width: 400px;
     }
-  </style>
+  </style>
 </head>
 <body>
-  <div class="container">
-    <img src="stop1.png" alt="Introduction" />
-    <div id="lockedMessage" class="locked-message">
-      This map must be unlocked in our shop at Storgata 23.
-    </div>
+  <div class="container">
+    <img src="stop1.png" alt="Stop 1" />
+    <div id="lockedMessage" class="locked-message">
+      This map must be unlocked in our shop at Storgata 23.
+    </div>
     <h1>Introduction to this walk<br><br>We recommend using headset or ear pods for best sound quality</h1>
     <button id="playBtn" class="play-button" onclick="playAudio()">▶️ Play Audio</button>
-    <audio id="audio">
-      <source src="intro.mp3" type="audio/mpeg" />
-      Your browser does not support the audio element.
-    </audio>
-  </div>
+    <audio id="audio">
+      <source src="intro.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+  </div>
 
-  <script>
-    const today = new Date().toISOString().split('T')[0];
-    const unlocked = localStorage.getItem('tourUnlocked');
-    const playBtn = document.getElementById('playBtn');
-    const lockedMessage = document.getElementById('lockedMessage');
+  <script>
+    const today = new Date().toISOString().split('T')[0];
+    const unlocked = localStorage.getItem('tourUnlocked');
+    const playBtn = document.getElementById('playBtn');
+    const lockedMessage = document.getElementById('lockedMessage');
 
-    if (unlocked !== today) {
-      playBtn.disabled = true;
-      lockedMessage.style.display = 'flex';
-    }
+    if (unlocked === today) {
+      playBtn.disabled = false;
+      lockedMessage.style.display = 'none';
+    } else {
+      playBtn.disabled = true;
+      lockedMessage.style.display = 'flex';
+    }
 
-    function playAudio() {
-      if (!playBtn.disabled) {
-        document.getElementById('audio').play();
-      }
-    }
-  </script>
+    function playAudio() {
+      if (!playBtn.disabled) {
+        document.getElementById('audio').play();
+      }
+    }
+  </script>
 </body>
 </html>
