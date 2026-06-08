@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Langeberggata 3</title>
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Arial Rounded MT Bold", "Arial Rounded MT", Arial, sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.locked-message {
+  display: none;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  margin-bottom: 1.5rem;
+}
+
+.play-button {
+  background-color: #0078D4;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  cursor: pointer;
+}
+
+audio {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 500px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <img src="stop9.png"/>
+  <div id="lockedMessage" class="locked-message"></div>
+
+<h1>Architectural Highlights<br>Langeberggata 3</h1>
+
+  <button id="playBtn" class="play-button" onclick="playAudio()">▶️ Play Audio</button>
+
+  <audio id="audio">
+    <source src="stop9.mp3" type="audio/mpeg" />
+  </audio>
+</div>
+
+<script>
+function playAudio() {
+  document.getElementById('audio').play();
+}
+</script>
+</body>
+</html>
