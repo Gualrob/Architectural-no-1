@@ -10,8 +10,26 @@ body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:c
 .container{max-width:800px;width:100%;text-align:center}
 img{max-width:100%;border-radius:12px;margin-bottom:20px}
 .language-switch{margin-bottom:20px}
-.language-switch button{padding:10px 18px;margin:4px;border:2px solid #0078D4;border-radius:30px;background:#fff;color:#0078D4;cursor:pointer}
-.language-switch button.active{background:#0078D4;color:#fff}
+.language-switch button{
+    background:#264653;
+    color:white;
+    border:none;
+    border-radius:999px;
+    padding:12px 22px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.language-switch button:hover{
+    transform:translateY(-2px);
+    opacity:.9;
+}
+
+.language-switch button.active{
+    background:#E9C46A;
+    color:#264653;
+}
 audio{width:100%;max-width:500px;margin-top:20px}
 </style>
 </head>
