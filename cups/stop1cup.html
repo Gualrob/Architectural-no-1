@@ -65,39 +65,43 @@ cursor:pointer;
 </div>
 
 <script>
-let currentLanguage = "no";
+let currentLanguage = "en";
 
 const content = {
     en: {
         title: "Architectural Highlights<br>Storgata 23",
-        button: "▶️ Play Audio",
         audio: "stop1.mp3"
     },
     no: {
         title: "Arkitektoniske høydepunkter<br>Storgata 23",
-        button: "▶️ Spill av lyd",
         audio: "rick.mp3"
     }
 };
 
-function setLanguage(lang){
+const audio = document.getElementById("audio");
+
+function setLanguage(lang) {
     currentLanguage = lang;
 
     document.getElementById("title").innerHTML = content[lang].title;
-    document.getElementById("playBtn").innerHTML = content[lang].button;
 
-    document.getElementById("enBtn").classList.toggle("active", lang==="en");
-    document.getElementById("noBtn").classList.toggle("active", lang==="no");
-}
+    document.getElementById("enBtn").classList.toggle("active", lang === "en");
+    document.getElementById("noBtn").classList.toggle("active", lang === "no");
 
-function playAudio(){
-    const audio = document.getElementById("audio");
+    // Stop current playback
     audio.pause();
     audio.currentTime = 0;
-    audio.src = content[currentLanguage].audio;
+
+    // Load the correct audio for the selected language
+    audio.src = content[lang].audio;
     audio.load();
-    audio.play();
 }
+
+// Load English by default
+window.onload = () => {
+    audio.src = content.en.audio;
+    audio.load();
+};
 </script>
 
 </body>
