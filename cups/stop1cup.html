@@ -6,13 +6,8 @@
 <title>Storgata 23</title>
 <style>
 *{box-sizing:border-box}
-body {
-    min-height: 100dvh;
-}
-
-.container {
-    height: 100vh;
-}
+body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:center;background:#f9f9f9;font-family:Arial,sans-serif;padding:20px}
+.container{max-width:800px;width:100%;text-align:center}
 img{max-width:100%;border-radius:12px;margin-bottom:20px}
 .language-switch{margin-bottom:20px}
 .language-switch button{
@@ -32,7 +27,7 @@ img{max-width:100%;border-radius:12px;margin-bottom:20px}
 }
 
 .language-switch button.active{
-    background:#FAC6E1;
+    background:#E6BCC8;
     color:#264653;
 }
 audio{width:100%;max-width:500px;margin-top:20px}
@@ -41,15 +36,6 @@ audio{width:100%;max-width:500px;margin-top:20px}
 <body>
 <div class="container">
 <img src="stop1.png" alt="Storgata 23">
-<img {
-    max-width: 100%;
-    max-height: 50svh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    border-radius: 12px;
-    margin-bottom: 20px;
-}
 <div class="language-switch">
 <button id="enBtn" class="active" onclick="setLanguage('en')">English</button>
 <button id="noBtn" onclick="setLanguage('no')">Norsk</button>
