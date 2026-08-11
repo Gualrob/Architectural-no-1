@@ -1,80 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Einarvikgata 7</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Storgata 23</title>
 <style>
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Arial Rounded MT Bold", "Arial Rounded MT", Arial, sans-serif;
-  background: #f9f9f9;
-  color: #333;
-  padding: 20px;
-}
-
-.container {
-  width: 100%;
-  max-width: 800px;
-  text-align: center;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-  margin-bottom: 1rem;
-}
-
-.locked-message {
-  display: none;
-}
-
-h1 {
-  font-size: clamp(1.5rem, 4vw, 2.4rem);
-  margin-bottom: 1.5rem;
-}
-
-.play-button {
-  background-color: #0078D4;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 1rem 2rem;
-  font-size: clamp(1rem, 3vw, 1.2rem);
-  cursor: pointer;
-}
-
-audio {
-  margin-top: 2rem;
-  width: 100%;
-  max-width: 500px;
-}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:center;background:#f9f9f9;font-family:Arial,sans-serif;padding:20px}
+.container{max-width:800px;width:100%;text-align:center}
+img{max-width:100%;max-height:45svh;width:auto;height:auto;object-fit:contain;border-radius:12px;margin-bottom:20px}
+.language-switch{margin-bottom:20px}
+.language-switch button{background:#85314A;color:#fff;border:none;border-radius:999px;padding:12px 22px;font-weight:600;cursor:pointer;transition:.25s}
+.language-switch button:hover{transform:translateY(-2px);opacity:.9}
+.language-switch button.active{background:#E6BCC8;color:#264653}
+audio{display:block;width:100%;max-width:500px;margin:10px auto 20px}
 </style>
 </head>
 <body>
 <div class="container">
-  <img src="stop2.png"/>
-  <div id="lockedMessage" class="locked-message"></div>
-
-  <h1>Architectural Highlights<br>Einarvikgata 7</h1>
-
-  <button id="playBtn" class="play-button" onclick="playAudio()">▶️ Play Audio</button>
-
-  <audio id="audio">
-    <source src="stop2.mp3" type="audio/mpeg" />
-  </audio>
+<img src="stop1.png" alt="Storgata 23">
+<div class="language-switch">
+<button id="enBtn" class="active" onclick="setLanguage('en')">English</button>
+<button id="noBtn" onclick="setLanguage('no')">Norsk</button>
 </div>
-
+<audio id="audio" controls preload="none"></audio>
+<h1 id="title">Architectural Highlights<br>Storgata 23</h1>
+</div>
 <script>
-function playAudio() {
-  document.getElementById('audio').play();
+const audio=document.getElementById("audio");
+const content={
+en:{title:"Architectural Highlights<br>Storgata 23",audio:"stop1.mp3"},
+no:{title:"Arkitektoniske høydepunkter<br>Storgata 23",audio:"stop1norsk.mp3"}
+};
+function setLanguage(lang){
+document.getElementById("title").innerHTML=content[lang].title;
+document.getElementById("enBtn").classList.toggle("active",lang==="en");
+document.getElementById("noBtn").classList.toggle("active",lang==="no");
+audio.pause();
+audio.currentTime=0;
+audio.src=content[lang].audio;
+audio.load();
+}
+window.onload=()=>setLanguage("en");
+</script>
+</body>
+</html>
 }
 </script>
 </body>
