@@ -10,9 +10,9 @@ body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:c
 .container{max-width:800px;width:100%;text-align:center}
 img{max-width:100%;max-height:45svh;width:auto;height:auto;object-fit:contain;border-radius:12px;margin-bottom:20px}
 .language-switch{margin-bottom:20px}
-.language-switch button{background:#85314A;color:#fff;border:none;border-radius:999px;padding:12px 22px;font-weight:600;cursor:pointer;transition:.25s}
+.language-switch button{background:#575135;color:#fff;border:none;border-radius:999px;padding:12px 22px;font-weight:600;cursor:pointer;transition:.25s}
 .language-switch button:hover{transform:translateY(-2px);opacity:.9}
-.language-switch button.active{background:#E6BCC8;color:#264653}
+.language-switch button.active{background:#aba587;color:#264653}
 audio{display:block;width:100%;max-width:500px;margin:10px auto 20px}
 </style>
 </head>
@@ -29,8 +29,8 @@ audio{display:block;width:100%;max-width:500px;margin:10px auto 20px}
 <script>
 const audio=document.getElementById("audio");
 const content={
-en:{title:"Architectural Highlights<br>Storgata 23",audio:"stop2.mp3"},
-no:{title:"Arkitektoniske høydepunkter<br>Storgata 23",audio:"rick.mp3"}
+en:{title:"Architectural Highlights<br>Einarvikgata 7",audio:"stop2.mp3"},
+no:{title:"Arkitektoniske høydepunkter<br>Einarvikgata 7",audio:"rick.mp3"}
 };
 function setLanguage(lang){
 document.getElementById("title").innerHTML=content[lang].title;
