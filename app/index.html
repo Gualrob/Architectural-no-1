@@ -1,59 +1,48 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+  <title>Unity Web Player | Arkitekten</title>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #231F20;
+    }
 
-    <meta
-        name="viewport"
-        content="width=device-width, height=device-height,
-                 initial-scale=1.0, user-scalable=no"
-    >
-
-    <title>Arkitekten</title>
-
-    <style>
-        html, body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background: #231F20;
-        }
-
-        #unity-canvas {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-    </style>
+    #unity-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: #231F20;
+    }
+  </style>
 </head>
-
 <body>
+  <canvas id="unity-canvas" tabindex="-1"></canvas>
 
-<canvas id="unity-canvas" tabindex="-1"></canvas>
-
-<script src="Build/app.loader.js"></script>
-
-<script>
+  <script src="Build/app.loader.js"></script>
+  <script>
     const canvas = document.querySelector("#unity-canvas");
 
     createUnityInstance(canvas, {
-        arguments: [],
-        dataUrl: "Build/app.data",
-        frameworkUrl: "Build/app.framework.js",
-        codeUrl: "Build/app.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "Arkitekten",
-        productVersion: "1.0"
+      arguments: [],
+      dataUrl: "Build/app.data",
+      frameworkUrl: "Build/app.framework.js",
+      codeUrl: "Build/app.wasm",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "DefaultCompany",
+      productName: "Arkitekten",
+      productVersion: "1.0"
     }).then((unityInstance) => {
-
     }).catch((message) => {
-        alert(message);
+      alert(message);
     });
-</script>
-
+  </script>
 </body>
 </html>
