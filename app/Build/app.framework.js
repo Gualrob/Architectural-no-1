@@ -1335,10 +1335,10 @@ function dbg(text) {
 // === Body ===
 
 var ASM_CONSTS = {
-  5509476: () => { Module['emscripten_get_now_backup'] = performance.now; },  
- 5509531: ($0) => { performance.now = function() { return $0; }; },  
- 5509579: ($0) => { performance.now = function() { return $0; }; },  
- 5509627: () => { performance.now = Module['emscripten_get_now_backup']; }
+  5505796: () => { Module['emscripten_get_now_backup'] = performance.now; },  
+ 5505851: ($0) => { performance.now = function() { return $0; }; },  
+ 5505899: ($0) => { performance.now = function() { return $0; }; },  
+ 5505947: () => { performance.now = Module['emscripten_get_now_backup']; }
 };
 
 
@@ -2088,40 +2088,6 @@ var ASM_CONSTS = {
   		}
   	}
   }
-
-  var geolocationId = 0;
-  function _JS_Geolocation_Start(serviceStatus, geolocationAccess, timestamp, latitude, longitude, altitude, accuracy) {
-          if (geolocationId !== 0) return;
-          const onsuccess = function (pos) {
-              HEAPU32[serviceStatus >> 2] = 2;
-              HEAP8[geolocationAccess] = true;
-              HEAPF64[timestamp >> 3] = Date.now();
-              HEAPF64[latitude >> 3] = pos.coords.latitude;
-              HEAPF64[longitude >> 3] = pos.coords.longitude;
-              HEAPF64[altitude >> 3] = pos.coords.altitude;
-              HEAPF64[accuracy >> 3] = pos.coords.accuracy;
-          }
-  
-          const onerror = function (err) {
-              console.warn(`WARNING(${err.code}): ${err.message}`);
-  
-              HEAPU32[serviceStatus >> 2] = 3;
-              HEAP8[geolocationAccess] = false;
-          }
-  
-          HEAPU32[serviceStatus >> 2] = 1;
-          geolocationId = navigator.geolocation.watchPosition(onsuccess, onerror);
-  
-      }
-
-  function _JS_Geolocation_Stop(serviceStatus) {
-          if (geolocationId) {
-              navigator.geolocation.clearWatch(geolocationId);
-              geolocationId = 0;
-  
-              HEAPU32[serviceStatus >> 2] = 0;
-          }
-      }
 
   function _JS_GetRandomBytes(destBuffer, numBytes) {
       // Crypto is widely available in browsers, but if running in
@@ -17364,8 +17330,6 @@ var wasmImports = {
   "JS_Eval_OpenURL": _JS_Eval_OpenURL,
   "JS_FileSystem_Initialize": _JS_FileSystem_Initialize,
   "JS_FileSystem_Sync": _JS_FileSystem_Sync,
-  "JS_Geolocation_Start": _JS_Geolocation_Start,
-  "JS_Geolocation_Stop": _JS_Geolocation_Stop,
   "JS_GetRandomBytes": _JS_GetRandomBytes,
   "JS_Get_WASM_Size": _JS_Get_WASM_Size,
   "JS_GravitySensor_IsRunning": _JS_GravitySensor_IsRunning,
@@ -17971,6 +17935,7 @@ var missingLibrarySymbols = [
   'writeAsciiToMemory',
   'wgpuSupportedWgslLanguageFeatures',
   'wgpuPipelineCreationFailed',
+  'geolocationId',
   'JS_DeviceOrientationPermissions',
   'JS_CalculateHeading',
   'JS_OrientationEventHandler',
@@ -18259,7 +18224,6 @@ var unexportedSymbols = [
   'wgpuReadRenderPassDepthStencilAttachment',
   'wgpuReadGpuTexelCopyBufferInfo',
   'wgpuReadGpuTexelCopyTextureInfo',
-  'geolocationId',
   'orientationEventHandler',
   'unregisterCompass',
   'isPushedToDeinitializer',
