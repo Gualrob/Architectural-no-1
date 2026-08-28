@@ -1335,10 +1335,10 @@ function dbg(text) {
 // === Body ===
 
 var ASM_CONSTS = {
-  5505796: () => { Module['emscripten_get_now_backup'] = performance.now; },  
- 5505851: ($0) => { performance.now = function() { return $0; }; },  
- 5505899: ($0) => { performance.now = function() { return $0; }; },  
- 5505947: () => { performance.now = Module['emscripten_get_now_backup']; }
+  5494052: () => { Module['emscripten_get_now_backup'] = performance.now; },  
+ 5494107: ($0) => { performance.now = function() { return $0; }; },  
+ 5494155: ($0) => { performance.now = function() { return $0; }; },  
+ 5494203: () => { performance.now = Module['emscripten_get_now_backup']; }
 };
 
 
@@ -6841,19 +6841,6 @@ var ASM_CONSTS = {
   	if (WEBAudio.audioWebEnabled == 0)
   		return WEBAudio.FAKEMOD_SAMPLERATE;
   	return WEBAudio.audioContext.sampleRate;
-  }
-
-  function _JS_Sound_GetData(bufferInstance, ptr, length)
-  {
-  	if (WEBAudio.audioWebEnabled == 0)
-  		return 0;
-  
-  	var soundClip = WEBAudio.audioInstances[bufferInstance];
-  
-  	if (!soundClip)
-  		return 0;
-  
-  	return soundClip.getData(ptr, length);
   }
 
   function _JS_Sound_GetLength(bufferInstance)
@@ -17370,7 +17357,6 @@ var wasmImports = {
   "JS_Sound_Create_Channel": _JS_Sound_Create_Channel,
   "JS_Sound_GetAudioBufferSampleRate": _JS_Sound_GetAudioBufferSampleRate,
   "JS_Sound_GetAudioContextSampleRate": _JS_Sound_GetAudioContextSampleRate,
-  "JS_Sound_GetData": _JS_Sound_GetData,
   "JS_Sound_GetLength": _JS_Sound_GetLength,
   "JS_Sound_GetLoadState": _JS_Sound_GetLoadState,
   "JS_Sound_GetMetaData": _JS_Sound_GetMetaData,
